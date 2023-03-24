@@ -1,7 +1,7 @@
 # Личный проект «Readme»
 
 * Студент: [Евгений Чичиленко](https://up.htmlacademy.ru/nodejs-2/3/user/2329195).
-* Наставник: `Неизвестно`.
+* Наставник: [Глеб Клецков](tg://resolve?domain=gleb_kletskov).
 
 ---
 
