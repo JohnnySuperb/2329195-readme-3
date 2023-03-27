@@ -1,0 +1,19 @@
+{
+  "name": "2329195-readme-3",
+  "version": "1.0.0",
+  "description": "* Студент: [Евгений Чичиленко](https://up.htmlacademy.ru/nodejs-2/3/user/2329195).\r * Наставник: [Глеб Клецков](tg://resolve?domain=gleb_kletskov).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JohnnySuperb/2329195-readme-3.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JohnnySuperb/2329195-readme-3/issues"
+  },
+  "homepage": "https://github.com/JohnnySuperb/2329195-readme-3#readme"
+}
