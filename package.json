@@ -4,6 +4,7 @@
   "description": "* Студент: [Евгений Чичиленко](https://up.htmlacademy.ru/nodejs-2/3/user/2329195).\r * Наставник: [Глеб Клецков](tg://resolve?domain=gleb_kletskov).",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint --ext=.jsx,.js,.tsx,.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
