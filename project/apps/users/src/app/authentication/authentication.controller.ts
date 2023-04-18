@@ -5,7 +5,9 @@ import { fillObject } from '@project/util/util-core';
 import { UserRdo } from './rdo/user.rdo';
 import { LoggedUserRdo } from './rdo/logged-user.rdo';
 import { LoginUserDto } from './dto/login-user.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('authentication')
 @Controller('authentication')
 export class AuthenticationController {
   constructor(
