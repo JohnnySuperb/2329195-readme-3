@@ -13,14 +13,18 @@ export class AuthenticationService {
     private readonly blogUserRepository: BlogUserMemoryRepository
   ) {}
   
-  public async register(dto: CreateUserDto) {
-    const {email, firstname, lastname, password, dateBirth} = dto;
+  public async register(user: CreateUserDto) {
+    const {email, firstname, lastname, password, dateBirth} = user;
 
-    const blogUser = {
-      email, firstname, lastname, role: UserRole.User,
-      avatar: '', dateBirth: dayjs(dateBirth).toDate(),
+    const newUser = {
+      email,
+      firstname,
+      lastname,
+      role: UserRole.User,
+      avatar: '',
+      dateBirth: dayjs(dateBirth).toDate(),
       passwordHash: ''
-    };
+    }
 
     const existUser = await this.blogUserRepository
       .findByEmail(email);
@@ -29,7 +33,7 @@ export class AuthenticationService {
       throw new ConflictException(AUTH_USER_EXISTS);
     }
 
-    const userEntity = await new BlogUserEntity(blogUser)
+    const userEntity = await new BlogUserEntity(newUser)
       .setPassword(password)
 
     return this.blogUserRepository

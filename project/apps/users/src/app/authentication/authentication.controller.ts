@@ -15,12 +15,13 @@ export class AuthenticationController {
   ) {}
 
   @ApiResponse({
+    type: UserRdo,
     status: HttpStatus.CREATED,
     description: 'The new user has been successfully created.'
   })
   @Post('register')
-  public async create(@Body() dto: CreateUserDto) {
-    const newUser = await this.authService.register(dto);
+  public async create(@Body() userData: CreateUserDto) {
+    const newUser = await this.authService.register(userData);
     return fillObject(UserRdo, newUser);
   }
 
@@ -35,8 +36,8 @@ export class AuthenticationController {
   })
   @Post('login')
   @HttpCode(HttpStatus.OK)
-  public async login(@Body() dto: LoginUserDto) {
-    const verifiedUser = await this.authService.verifyUser(dto);
+  public async login(@Body() userData: LoginUserDto) {
+    const verifiedUser = await this.authService.verifyUser(userData);
     return fillObject(LoggedUserRdo, verifiedUser);
   }
 

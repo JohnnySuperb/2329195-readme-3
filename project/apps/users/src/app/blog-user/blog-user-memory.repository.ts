@@ -6,7 +6,7 @@ import * as crypto from 'node:crypto';
 
 @Injectable()
 export class BlogUserMemoryRepository implements CRUDRepository<BlogUserEntity, string, User> {
-  private repository: {[key: string]: User} = {};
+  private repository: User[] = [];
 
   public async create(item: BlogUserEntity): Promise<User> {
     const entry = { ...item.toObject(), _id: crypto.randomUUID()};
@@ -15,31 +15,29 @@ export class BlogUserMemoryRepository implements CRUDRepository<BlogUserEntity, 
     return entry;
   }
 
-  public async findById(id: string): Promise<User> {
-    if (this.repository[id]) {
-      return {...this.repository[id]};
-    }
-
-    return null;
+  public async findById(id: string): Promise<User | null> {
+    const user = this.repository.find(user => user._id === id);
+    return user ?? null;
   }
 
   public async findByEmail(email: string): Promise<User | null> {
-    const existUser = Object.values(this.repository)
-      .find((userItem) => userItem.email === email);
-
-    if (! existUser) {
-      return null;
-    }
-
-    return { ...existUser};
+    const user = this.repository.find(user => user.email === email);
+    return user ?? null;
   }
 
   public async destroy(id: string): Promise<void> {
-    delete this.repository[id];
+    this.repository = this.repository.filter(user => user._id !== id);
   }
 
   public async update(id: string, item: BlogUserEntity): Promise<User> {
-    this.repository[id] = {...item.toObject(), _id: id};
+    this.repository.map(user => {
+      if (user._id === id) {
+        return {...item.toObject(), _id: id};
+      }
+
+      return user;
+    });
+    
     return this.findById(id);
   }
 }
