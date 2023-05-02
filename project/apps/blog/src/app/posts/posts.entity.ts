@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import { BasePost, PostPhoto, PostVideo, PostQuote, PostLink, PostText } from "@project/shared/types";
+import { BasePost, PostPhoto, PostVideo, PostQuote, PostLink, PostText, PostType } from "@project/shared/types";
 
 class BasePostEntity implements BasePost {
   public id: string;
@@ -11,7 +11,7 @@ class BasePostEntity implements BasePost {
   public updatedDate: number;
 
   constructor(post: BasePost) {
-    this.id = post._id;
+    this.id = post.id;
     this.title = post.title;
     this.tags = post.tags;
     this.type = post.type;
@@ -26,6 +26,10 @@ class BasePostEntity implements BasePost {
 
   public setCreatedDate() {
     this.createdDate = dayjs().unix();
+    return this;
+  }
+  public setUpdatedDate() {
+    this.updatedDate = dayjs().unix();
     return this;
   }
 }

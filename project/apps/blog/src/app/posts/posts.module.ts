@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { PostsMemoryRepository } from './posts-memory.repository';
 import { PostsController } from './posts.controller';
 import { PostsService } from './posts.service';
 

@@ -1,7 +1,7 @@
 import { PostType } from "./post-type.enum";
 
 export interface BasePost {
-  _id?: string;
+  id?: string;
   title: string;
   tags: string[];
   type: PostType;

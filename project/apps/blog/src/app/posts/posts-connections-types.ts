@@ -1,4 +1,8 @@
-import { CreatePostTextDto } from "./dto/create-post.dto";
+import { 
+  CreatePostTextDto, CreatePostLinkDto, CreatePostPhotoDto, CreatePostQuoteDto, CreatePostVideoDto 
+} from "./dto/create-post.dto";
+import { PostLinkEntity, PostPhotoEntity, PostQuoteEntity, PostTextEntity, PostVideoEntity } from "./posts.entity";
+import { PostTextRdo, PostLinkRdo, PostVideoRdo, PostPhotoRdo, PostQuoteRdo } from "./rdo/post.rdo";
 
 
 export const PostConnectionsTypes = [
@@ -7,5 +11,29 @@ export const PostConnectionsTypes = [
     dto: CreatePostTextDto,
     rdo: PostTextRdo,
     entity: PostTextEntity,
-  }
+  },
+  {
+    type: "Video",
+    dto: CreatePostVideoDto,
+    rdo: PostVideoRdo,
+    entity: PostVideoEntity,
+  },
+  {
+    type: "Photo",
+    dto: CreatePostPhotoDto,
+    rdo: PostPhotoRdo,
+    entity: PostPhotoEntity,
+  },
+  {
+    type: "Quote",
+    dto: CreatePostQuoteDto,
+    rdo: PostQuoteRdo,
+    entity: PostQuoteEntity,
+  },
+  {
+    type: "Link",
+    dto: CreatePostLinkDto,
+    rdo: PostLinkRdo,
+    entity: PostLinkEntity,
+  },
 ]

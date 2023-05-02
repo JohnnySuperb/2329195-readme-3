@@ -1,6 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { PostType } from "@project/shared/types";
-import exp from "constants";
 
 class BasePostDto {
   @ApiProperty({
@@ -36,7 +35,7 @@ export class CreatePostVideoDto extends BasePostDto {
   @ApiProperty({
     description: "video-link",
   })
-  public anonce: string;
+  public video: string;
 }
 
 export class CreatePostPhotoDto extends BasePostDto {
