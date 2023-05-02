@@ -5,7 +5,6 @@ import { PostConnectionsTypes } from './posts-connections-types';
 import { PostsService } from './posts.service';
 import { fillObject } from '@project/util/util-core';
 import { BasePostRdo } from './rdo/post.rdo';
-import { BasePost } from '@project/shared/types';
 import { ClassConstructor } from 'class-transformer';
 
 @ApiTags('Posts')
