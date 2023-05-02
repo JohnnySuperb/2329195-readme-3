@@ -1,5 +1,5 @@
 import { 
-  CreatePostTextDto, CreatePostLinkDto, CreatePostPhotoDto, CreatePostQuoteDto, CreatePostVideoDto 
+  CreatePostTextDto, CreatePostVideoDto, CreatePostLinkDto, CreatePostPhotoDto, CreatePostQuoteDto
 } from "./dto/create-post.dto";
 import { PostLinkEntity, PostPhotoEntity, PostQuoteEntity, PostTextEntity, PostVideoEntity } from "./posts.entity";
 import { PostTextRdo, PostLinkRdo, PostVideoRdo, PostPhotoRdo, PostQuoteRdo } from "./rdo/post.rdo";
@@ -36,4 +36,4 @@ export const PostConnectionsTypes = [
     rdo: PostLinkRdo,
     entity: PostLinkEntity,
   },
-]
+];

@@ -6,6 +6,7 @@ import { PostsService } from './posts.service';
 import { fillObject } from '@project/util/util-core';
 import { BasePostRdo } from './rdo/post.rdo';
 import { BasePost } from '@project/shared/types';
+import { ClassConstructor } from 'class-transformer';
 
 @ApiTags('Posts')
 @Controller('posts')
@@ -18,15 +19,15 @@ export class PostsController {
     const postConnectionType = PostConnectionsTypes.find(connectionType => connectionType.type === post.type);
 
     if (postConnectionType) {
-      return fillObject(postConnectionType.dto, post);
+      return fillObject(postConnectionType.rdo as unknown as ClassConstructor<BasePostRdo>, post);
     }
-  }
+  }  
 
   @ApiResponse({
     status: HttpStatus.OK,
     description: 'List posts'
   })
-  @Get()
+  @Get('/')
   public async all(@Query() params) {
     const posts = await this.postsService.all(params);
     return posts.map(post => this.transformPostToDto(post));

@@ -6,36 +6,43 @@ export class BasePostRdo implements BasePost {
   @ApiProperty({
     description: "Post ID"
   })
+  @Expose()
   public id: string;
 
   @ApiProperty({
     description: "Post title"
   })
+  @Expose()
   public title: string;
 
   @ApiProperty({
     description: "List tags"
   })
+  @Expose()
   public tags: string[];
 
   @ApiProperty({
     description: "Post type"
   })
+  @Expose()
   public type: PostType;
 
   @ApiProperty({
     description: "User ID"
   })
+  @Expose()
   public userId: string;
 
   @ApiProperty({
     description: "Created date"
   })
+  @Expose()
   public createdDate: number;
 
   @ApiProperty({
     description: "Updated date"
   })
+  @Expose()
   public updatedDate: number;
 }
 
