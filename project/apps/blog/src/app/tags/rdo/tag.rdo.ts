@@ -1,5 +1,5 @@
-import { ApiProperty } from "@nestjs/swagger";
-import {Tag} from '@project/shared/types';
+import { ApiProperty } from '@nestjs/swagger';
+import { Tag } from '@project/shared/types';
 
 export class TagRdo implements Tag {
   @ApiProperty({

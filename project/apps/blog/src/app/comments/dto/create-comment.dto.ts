@@ -1,18 +1,18 @@
-import {ApiProperty} from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateCommentDto {
   @ApiProperty({
-    description: 'text comment'
+    description: 'text comment',
   })
   public text: string;
 
   @ApiProperty({
-    description: 'post Id'
+    description: 'post Id',
   })
   public postId: string;
 
   @ApiProperty({
-    description: 'user Id'
+    description: 'user Id',
   })
   public userId: string;
 }

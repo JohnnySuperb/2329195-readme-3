@@ -1,13 +1,11 @@
-import { Injectable } from "@nestjs/common";
-import { CommentEntity } from "./comment.entity";
-import { CommentsMemoryRepository } from "./comments-memory.repository";
-import { CreateCommentDto } from "./dto/create-comment.dto";
+import { Injectable } from '@nestjs/common';
+import { CommentEntity } from './comment.entity';
+import { CommentsMemoryRepository } from './comments-memory.repository';
+import { CreateCommentDto } from './dto/create-comment.dto';
 
 @Injectable()
 export class CommentsService {
-  constructor(
-    private readonly commentsRepository: CommentsMemoryRepository
-  ) {}
+  constructor(private readonly commentsRepository: CommentsMemoryRepository) {}
 
   public create(commentData: CreateCommentDto) {
     const commentEntity = new CommentEntity(commentData).setCreatedDate();

@@ -1,4 +1,4 @@
-import { Tag } from "@project/shared/types";
+import { Tag } from '@project/shared/types';
 
 export class TagEntity implements Tag {
   public id: string;

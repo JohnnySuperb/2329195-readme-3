@@ -1,65 +1,64 @@
-import { ApiProperty } from "@nestjs/swagger";
-import { PostType } from "@project/shared/types";
+import { ApiProperty } from '@nestjs/swagger';
+import { PostType } from '@project/shared/types';
 
 class BasePostDto {
   @ApiProperty({
-    description: "Post title",
+    description: 'Post title',
   })
   public title: string;
 
   @ApiProperty({
-    description: "Post type",
+    description: 'Post type',
   })
   public type: PostType;
 
   @ApiProperty({
-    description: "List tags",
+    description: 'List tags',
   })
   public tags: string;
 
   @ApiProperty({
-    description: "User ID",
+    description: 'User ID',
   })
   public userId: string;
-
 }
 
 export class CreatePostTextDto extends BasePostDto {
   @ApiProperty({
-    description: "Text anonce",
+    description: 'Text anonce',
   })
   public anonce: string;
 }
 
 export class CreatePostVideoDto extends BasePostDto {
   @ApiProperty({
-    description: "video-link",
+    description: 'video-link',
   })
   public video: string;
 }
 
 export class CreatePostPhotoDto extends BasePostDto {
   @ApiProperty({
-    description: "Photo",
+    description: 'Photo',
   })
   public photo: string;
 }
 
 export class CreatePostQuoteDto extends BasePostDto {
   @ApiProperty({
-    description: "Quote",
+    description: 'Quote',
   })
   public quote: string;
 }
 
 export class CreatePostLinkDto extends BasePostDto {
   @ApiProperty({
-    description: "Link",
+    description: 'Link',
   })
   public link: string;
 }
 
-export type CreatePostDto = 
+export type CreatePostDto =
   | CreatePostTextDto
   | CreatePostVideoDto
   | CreatePostPhotoDto

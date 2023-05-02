@@ -1,4 +1,4 @@
-import { ApiProperty } from "@nestjs/swagger";
+import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateLikeDto {
   @ApiProperty({
@@ -7,7 +7,7 @@ export class CreateLikeDto {
   public postId: string;
 
   @ApiProperty({
-    description: 'User Id'
+    description: 'User Id',
   })
   public userId: string;
 }

@@ -1,5 +1,13 @@
-import dayjs from "dayjs";
-import { BasePost, PostPhoto, PostVideo, PostQuote, PostLink, PostText, PostType } from "@project/shared/types";
+import dayjs from 'dayjs';
+import {
+  BasePost,
+  PostPhoto,
+  PostVideo,
+  PostQuote,
+  PostLink,
+  PostText,
+  PostType,
+} from '@project/shared/types';
 
 class BasePostEntity implements BasePost {
   public id: string;
@@ -79,9 +87,9 @@ export class PostVideoEntity extends BasePostEntity {
   }
 }
 
-export type PostEntity = 
+export type PostEntity =
   | PostTextEntity
   | PostPhotoEntity
   | PostLinkEntity
   | PostQuoteEntity
-  | PostVideoEntity
+  | PostVideoEntity;

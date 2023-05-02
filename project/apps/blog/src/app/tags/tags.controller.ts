@@ -1,4 +1,12 @@
-import { Body, Controller, Delete, Get, HttpStatus, Param, Put } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  HttpStatus,
+  Param,
+  Put,
+} from '@nestjs/common';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { fillObject } from '@project/util/util-core';
 import { CreateTagDto } from './dto/create-tag.dto';
@@ -8,9 +16,7 @@ import { TagsService } from './tags.service';
 @ApiTags('Tags')
 @Controller('tags')
 export class TagsController {
-  constructor(
-    private readonly tagsService: TagsService
-  ) {}
+  constructor(private readonly tagsService: TagsService) {}
 
   @ApiResponse({
     type: TagRdo,
@@ -20,13 +26,13 @@ export class TagsController {
   @Get()
   public all() {
     const tags = this.tagsService.all();
-    return tags.map(item => fillObject(TagRdo, item));
+    return tags.map((item) => fillObject(TagRdo, item));
   }
-  
+
   @ApiResponse({
     type: TagRdo,
     status: HttpStatus.OK,
-    description: 'Update tags'
+    description: 'Update tags',
   })
   @Put(':id')
   public update(@Param('id') id: string, @Body() tagData: CreateTagDto) {
@@ -43,4 +49,3 @@ export class TagsController {
     this.tagsService.destroy(id);
   }
 }
-

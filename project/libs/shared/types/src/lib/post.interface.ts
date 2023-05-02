@@ -1,4 +1,4 @@
-import { PostType } from "./post-type.enum";
+import { PostType } from './post-type.enum';
 
 export interface BasePost {
   id?: string;
@@ -30,9 +30,4 @@ export interface PostLink extends BasePost {
   link: string;
 }
 
-export type IPost = 
-  | PostText
-  | PostVideo
-  | PostQuote
-  | PostPhoto
-  | PostLink;
+export type IPost = PostText | PostVideo | PostQuote | PostPhoto | PostLink;

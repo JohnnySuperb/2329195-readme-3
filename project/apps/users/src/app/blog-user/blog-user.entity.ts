@@ -1,5 +1,5 @@
 import { User, UserRole } from '@project/shared/types';
-import { compare,genSalt, hash } from 'bcrypt';
+import { compare, genSalt, hash } from 'bcrypt';
 import { SALT_ROUNDS } from './blog-user.constant';
 
 export class BlogUserEntity implements User {
@@ -17,7 +17,7 @@ export class BlogUserEntity implements User {
   }
 
   public toObject() {
-    return {...this};
+    return { ...this };
   }
 
   public fillEntity(blogUser: User) {

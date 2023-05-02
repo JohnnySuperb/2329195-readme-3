@@ -1,5 +1,7 @@
-import {plainToInstance, ClassConstructor} from 'class-transformer';
+import { plainToInstance, ClassConstructor } from 'class-transformer';
 
 export function fillObject<T, V>(someDto: ClassConstructor<T>, plainObject: V) {
-  return plainToInstance(someDto, plainObject, {excludeExtraneousValues: true});
+  return plainToInstance(someDto, plainObject, {
+    excludeExtraneousValues: true,
+  });
 }

@@ -1,14 +1,12 @@
-import { Injectable } from "@nestjs/common";
-import { LikesMemoryRepository } from "./likes-memory.repository";
-import { LikeEntity } from "./likes.entity";
-import { CreateLikeDto } from "./dto/create-like.dto";
-import { Like } from "@project/shared/types";
+import { Injectable } from '@nestjs/common';
+import { LikesMemoryRepository } from './likes-memory.repository';
+import { LikeEntity } from './likes.entity';
+import { CreateLikeDto } from './dto/create-like.dto';
+import { Like } from '@project/shared/types';
 
 @Injectable()
 export class LikesService {
-  constructor(
-    private readonly likesRepository: LikesMemoryRepository
-  ) {}
+  constructor(private readonly likesRepository: LikesMemoryRepository) {}
 
   public create(likeData: CreateLikeDto): Promise<Like> {
     const likeEntity = new LikeEntity(likeData);

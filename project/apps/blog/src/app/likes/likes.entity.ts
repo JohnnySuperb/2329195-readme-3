@@ -1,4 +1,4 @@
-import { Like } from "@project/shared/types";
+import { Like } from '@project/shared/types';
 
 export class LikeEntity implements Like {
   id: string;

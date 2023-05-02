@@ -1,14 +1,12 @@
-import { Injectable } from "@nestjs/common";
-import { TagEntity } from "./tags.entity";
-import { TagsMemoryRepository } from "./tags-memory.repository";
-import { CreateTagDto } from "./dto/create-tag.dto";
-import { Tag } from "@project/shared/types";
+import { Injectable } from '@nestjs/common';
+import { TagEntity } from './tags.entity';
+import { TagsMemoryRepository } from './tags-memory.repository';
+import { CreateTagDto } from './dto/create-tag.dto';
+import { Tag } from '@project/shared/types';
 
 @Injectable()
 export class TagsService {
-  constructor(
-    private readonly tagsRepository: TagsMemoryRepository
-  ) {}
+  constructor(private readonly tagsRepository: TagsMemoryRepository) {}
 
   public all(): Tag[] {
     return this.tagsRepository.all();

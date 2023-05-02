@@ -13,14 +13,11 @@ export class LikesMemoryRepository {
   }
 
   public async destroy(id: string): Promise<void> {
-    this.repository = this.repository.filter(item =>item.id !== id);
+    this.repository = this.repository.filter((item) => item.id !== id);
   }
 
   public async count(postId: string): Promise<number> {
-    const likes = this.repository.filter(item => item.postId === postId);
+    const likes = this.repository.filter((item) => item.postId === postId);
     return likes.length;
   }
 }
-
-
-

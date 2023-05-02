@@ -1,4 +1,12 @@
-import { Body, Controller, Get, HttpCode, HttpStatus, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  HttpCode,
+  HttpStatus,
+  Param,
+  Post,
+} from '@nestjs/common';
 import { AuthenticationService } from './authentication.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { fillObject } from '@project/util/util-core';
@@ -10,14 +18,12 @@ import { ApiResponse, ApiTags } from '@nestjs/swagger';
 @ApiTags('authentication')
 @Controller('auth')
 export class AuthenticationController {
-  constructor(
-    private readonly authService: AuthenticationService
-  ) {}
+  constructor(private readonly authService: AuthenticationService) {}
 
   @ApiResponse({
     type: UserRdo,
     status: HttpStatus.CREATED,
-    description: 'The new user has been successfully created.'
+    description: 'The new user has been successfully created.',
   })
   @Post('register')
   public async create(@Body() userData: CreateUserDto) {
@@ -28,7 +34,7 @@ export class AuthenticationController {
   @ApiResponse({
     type: LoggedUserRdo,
     status: HttpStatus.OK,
-    description: 'User has been successfully logged.'
+    description: 'User has been successfully logged.',
   })
   @ApiResponse({
     status: HttpStatus.UNAUTHORIZED,
@@ -44,7 +50,7 @@ export class AuthenticationController {
   @ApiResponse({
     type: UserRdo,
     status: HttpStatus.OK,
-    description: 'User found'
+    description: 'User found',
   })
   @Get(':id')
   public async show(@Param('id') id: string) {

@@ -1,14 +1,16 @@
-import { Injectable } from "@nestjs/common";
-import { Tag } from "@project/shared/types";
-import {CRUDRepository} from'@project/util/util-types'
-import { TagEntity } from "./tags.entity";
+import { Injectable } from '@nestjs/common';
+import { Tag } from '@project/shared/types';
+import { CRUDRepository } from '@project/util/util-types';
+import { TagEntity } from './tags.entity';
 
 @Injectable()
-export class TagsMemoryRepository implements CRUDRepository<TagEntity, string, Tag> {
+export class TagsMemoryRepository
+  implements CRUDRepository<TagEntity, string, Tag>
+{
   private repository: Tag[] = [];
 
   public async findById(id: string): Promise<Tag> {
-    const tag = this.repository.find(item => item.id === id);
+    const tag = this.repository.find((item) => item.id === id);
     return tag ?? null;
   }
 
@@ -19,9 +21,9 @@ export class TagsMemoryRepository implements CRUDRepository<TagEntity, string, T
   }
 
   public async update(id: string, tagData: TagEntity): Promise<Tag> {
-    this.repository = this.repository.map(item => {
+    this.repository = this.repository.map((item) => {
       if (item.id === id) {
-        return { ...tagData.toObject(), id: id }
+        return { ...tagData.toObject(), id: id };
       }
 
       return item;
@@ -31,11 +33,10 @@ export class TagsMemoryRepository implements CRUDRepository<TagEntity, string, T
   }
 
   public async destroy(id: string): Promise<void> {
-    this.repository = this.repository.filter(item => item.id !==id)
+    this.repository = this.repository.filter((item) => item.id !== id);
   }
 
   public all(): Tag[] {
     return this.repository;
   }
-
 }

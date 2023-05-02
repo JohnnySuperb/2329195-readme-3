@@ -3,6 +3,6 @@ import { BlogUserMemoryRepository } from './blog-user-memory.repository';
 
 @Module({
   providers: [BlogUserMemoryRepository],
-  exports: [BlogUserMemoryRepository]
+  exports: [BlogUserMemoryRepository],
 })
 export class BlogUserModule {}
