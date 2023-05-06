@@ -11,7 +11,8 @@ import { MongooseModule } from '@nestjs/mongoose';
     ConfigUsersModule,
     MongooseModule.forRootAsync(
       getMongooseOptions()
-  )],  controllers: [],
+  )],
+  controllers: [],
   providers: [],
 })
 export class AppModule {}
