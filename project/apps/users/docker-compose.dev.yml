@@ -1,7 +1,7 @@
 version: '3.5'
 services:
   readme.users.mongo:
-    image: mongo
+    image: mongo:4.4
     restart: always
     container_name: readme.users.mongo
 
@@ -17,7 +17,7 @@ services:
       - readme.mongo.users:/data/db
 
     healthcheck:
-      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/readme-users --quiet
+      test: echo 'db.runCommand("ping").ok' | mongosh 127.0.0.1:27017/readme-users --quiet
       interval: 10s
       timeout: 10s
       retries: 5

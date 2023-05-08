@@ -45,12 +45,12 @@ export class BlogUserModel extends Document implements User {
   public role: UserRole;
 
   @Prop({
-    required: true,
+    required: false,
   })
   public createdAt: number;
 
   @Prop({
-    required: true,
+    required: false,
   })
   public updatedAt: number;
 
